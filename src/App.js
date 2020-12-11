@@ -5,6 +5,9 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 
 class App extends React.Component {
 
@@ -18,9 +21,9 @@ class App extends React.Component {
         { title: 'Contact', path: '/contact' }
       ],
       home: {
-        title: 'Be Relentless',
-        subTitle: 'Projects that make a difference',
-        text: 'Checkout my projects below'
+        title: 'Hi!',
+        subTitle: "I'm a Web Developer",
+        subSubTitle: 'Checkout my projects below'
       },
       about: {
         title: 'About Me'
@@ -48,11 +51,16 @@ class App extends React.Component {
                     <Link className="nav-link" to="/">Home</Link>
                     <Link className="nav-link" to="/about">About</Link>
                     <Link className="nav-link" to="/contact">Contact</Link>
+
+   
                   </Nav>
                 </Navbar.Collapse>
 
           </Navbar>
 
+          <Route path="/" exact render={() => <HomePage title={this.state.home.title} subTitle={this.state.home.subTitle} subSubTitle={this.state.home.subSubTitle} />} />
+          <Route path="/about" render={() => <AboutPage title={this.state.about.title} />} />
+          <Route path="/contact" render={() => <ContactPage title={this.state.contact.title} />} />
           <Footer/>
 
 
